@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: Axle (axle.coffee) <contact@axle.coffee>
+# SPDX-License-Identifier: CC0-1.0
+
+version = 1
+
+SPDX-PackageName = "blahaj-template"
+SPDX-PackageSupplier = "Axle (axle.coffee) <contact@axle.coffee>"
+SPDX-PackageDownloadLocation = "https://github.com/axlecoffee/blahaj-template"
+
+[[annotations]]
+path = ["**/*.kt", "**/*.java"]
+SPDX-License-Identifier = "AGPL-3.0-only"
+SPDX-FileCopyrightText = "Axle (axle.coffee) <contact@axle.coffee>"
+
+[[annotations]]
+path = [
+    "/src/main/java/coffee/axle/examplemod/init/AutoDiscoveryPlugin.java",
+    "/src/main/java/coffee/axle/examplemod/init/MixinPlugin.java",
+]
+SPDX-License-Identifier = "GPL-3.0-or-later"
+SPDX-FileCopyrightText = ["Linnea Gräf <nea@nea.moe>", "Firmament Contributors"]
+
+[[annotations]]
+path = [
+    "**/*.gradle.kts",
+    "**/gradle.properties",
+    "**/gradle-wrapper.properties",
+    "**/libs.versions.toml",
+    "**/fabric.mod.json",
+    "**/*.mixins.json",
+    "**/mixins.*.json",
+]
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "Axle (axle.coffee) <contact@axle.coffee>"
+
+[[annotations]]
+path = [
+    "gradlew",
+    "gradlew.bat",
+]
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "Axle (axle.coffee) <contact@axle.coffee>"
+
+[[annotations]]
+path = "LICENSES/**"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "Axle (axle.coffee) <contact@axle.coffee>"

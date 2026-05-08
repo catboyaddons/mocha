@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "coffee.axle.examplemod.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "plugin": "coffee.axle.examplemod.init.MixinPlugin",
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+  ]
+}

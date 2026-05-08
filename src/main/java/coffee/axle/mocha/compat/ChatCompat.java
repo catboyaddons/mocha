@@ -4,20 +4,18 @@
 
 package coffee.axle.mocha.compat;
 
-import net.minecraft.text.Text;
-
 
 public final class ChatCompat {
 
     private ChatCompat() {}
 
     //? if mc >= "26.1.2" {
-    public static Text literal(String text) {
-        return Text.literal(text);
+    public static String platformName() {
+        return "26.x";
     }
     //?} else {
-    /*public static Text literal(String text) {
-        return Text.literal(text);
+    /*public static String platformName() {
+        return "1.21.x";
     }*/
     //?}
 }

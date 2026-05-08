@@ -1,3 +1,5 @@
+import org.gradle.api.publish.maven.MavenPublication
+
 plugins {
 	id("coffee.axle.blahaj")
 }
@@ -7,28 +9,26 @@ blahaj {
 		// yarn()
 		// versionedAccessWideners()
 	}
-	setup {
-		// mocha("1.0.0")
-		sodium()
-		iris()
-		devauth()
-		mixinExtras()
-		hypixel()
-/*
-		txnilib("1.0.23")
-		forgeConfig()
-		conditionalMixin()
+	setup {}
+}
 
-		// access Gradle's DependencyHandler
+// Derive the MC version from the Stonecutter subproject name, e.g. "1.21.10-fabric" -> "1.21.10".
+// This must match the coordinate blahaj resolves: coffee.axle.mocha:mocha-<mcVersion>:<version>
+val mcVersion = project.name.substringBeforeLast('-')
 
-		// configure Curseforge & Modrinth publish settings
-		incompatibleWith("optifine")
-
-		// add mods with Blahaj's fluent interface
-
-		addMod("sodiumextras")
-			.modrinth("sodium-extras") // override with Modrinth URL slug
-			.addPlatform("1.21.1-neoforge", "neoforge-1.21.1-1.0.7")
-			.addPlatform("1.21.1-fabric", "fabric-1.21.1-1.0.7") { required() } */
+publishing {
+	publications.named<MavenPublication>("mavenJava") {
+		groupId = "coffee.axle.mocha"
+		artifactId = "mocha-$mcVersion"
+	}
+	repositories {
+		maven {
+			name = "axle-maven"
+			url = uri("https://maven.axle.coffee/releases")
+			credentials {
+				username = System.getenv("MAVEN_USERNAME") ?: findProperty("MAVEN_USERNAME")?.toString()
+				password = System.getenv("MAVEN_SECRET") ?: findProperty("MAVEN_SECRET")?.toString()
+			}
+		}
 	}
 }

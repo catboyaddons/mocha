@@ -3,7 +3,7 @@
 
 version = 1
 
-SPDX-PackageName = "Mocha"
+SPDX-PackageName = "mocha"
 SPDX-PackageSupplier = "Axle Duggan (axlecoffee) <contact@axle.coffee>"
 SPDX-PackageDownloadLocation = "https://github.com/catboyaddons/mocha"
 

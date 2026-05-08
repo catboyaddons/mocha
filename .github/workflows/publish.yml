@@ -28,7 +28,7 @@ jobs:
             echo "MAVEN_URL=https://maven.axle.coffee/snapshots" >> $GITHUB_ENV
           fi
 
-      - name: Publish all versions to Maven
+      - name: Build and publish all versions to Maven
         run: |
           chmod +x ./gradlew
           ./gradlew publishAllMaven --stacktrace

@@ -24,7 +24,7 @@ publishing {
 	repositories {
 		maven {
 			name = "axle-maven"
-			url = uri("https://maven.axle.coffee/releases")
+			url = uri(System.getenv("MAVEN_URL") ?: "https://maven.axle.coffee/releases")
 			credentials {
 				username = System.getenv("MAVEN_USERNAME") ?: findProperty("MAVEN_USERNAME")?.toString()
 				password = System.getenv("MAVEN_SECRET") ?: findProperty("MAVEN_SECRET")?.toString()

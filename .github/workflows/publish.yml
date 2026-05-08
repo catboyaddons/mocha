@@ -2,8 +2,6 @@ name: Publish
 
 on:
   push:
-    tags:
-      - 'v*'
 
 jobs:
   publish:
@@ -22,10 +20,19 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Set Maven URL
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "MAVEN_URL=https://maven.axle.coffee/releases" >> $GITHUB_ENV
+          else
+            echo "MAVEN_URL=https://maven.axle.coffee/snapshots" >> $GITHUB_ENV
+          fi
+
       - name: Publish all versions to Maven
         run: |
           chmod +x ./gradlew
           ./gradlew publishAllMaven --stacktrace
         env:
-          axleMavenUsername: ${{ secrets.MAVEN_USERNAME }}
-          axleMavenPassword: ${{ secrets.MAVEN_SECRET }}
+          MAVEN_URL: ${{ env.MAVEN_URL }}
+          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+          MAVEN_SECRET: ${{ secrets.MAVEN_SECRET }}

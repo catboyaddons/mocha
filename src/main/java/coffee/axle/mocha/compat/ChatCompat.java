@@ -9,7 +9,7 @@ public final class ChatCompat {
 
     private ChatCompat() {}
 
-    //? if mc >= "26.1.2" {
+    //? if >=26.1.2 {
     public static String platformName() {
         return "26.x";
     }

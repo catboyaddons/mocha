@@ -6,7 +6,7 @@ package coffee.axle.mocha.compat;
 
 
 public final class ChatCompat {
-
+// https://codeberg.org/stonecutter/docs/raw/branch/main/docs/wiki/start/comments.md
     private ChatCompat() {}
     //? if <26 {
     public static String platformName() {

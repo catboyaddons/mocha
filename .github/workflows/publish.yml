@@ -21,8 +21,6 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '9.4'
 
       - name: Publish all versions to Maven
         run: |

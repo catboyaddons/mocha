@@ -1,24 +1,16 @@
-# SPDX-FileCopyrightText: Axle (axle.coffee) <contact@axle.coffee>
+# SPDX-FileCopyrightText: Axle Duggan (axlecoffee) <contact@axle.coffee>
 # SPDX-License-Identifier: CC0-1.0
 
 version = 1
 
-SPDX-PackageName = "blahaj-template"
-SPDX-PackageSupplier = "Axle (axle.coffee) <contact@axle.coffee>"
-SPDX-PackageDownloadLocation = "https://github.com/axlecoffee/blahaj-template"
+SPDX-PackageName = "Mocha"
+SPDX-PackageSupplier = "Axle Duggan (axlecoffee) <contact@axle.coffee>"
+SPDX-PackageDownloadLocation = "https://github.com/catboyaddons/mocha"
 
 [[annotations]]
 path = ["**/*.kt", "**/*.java"]
-SPDX-License-Identifier = "AGPL-3.0-only"
-SPDX-FileCopyrightText = "Axle (axle.coffee) <contact@axle.coffee>"
-
-[[annotations]]
-path = [
-    "/src/main/java/coffee/axle/examplemod/init/AutoDiscoveryPlugin.java",
-    "/src/main/java/coffee/axle/examplemod/init/MixinPlugin.java",
-]
-SPDX-License-Identifier = "GPL-3.0-or-later"
-SPDX-FileCopyrightText = ["Linnea Gräf <nea@nea.moe>", "Firmament Contributors"]
+SPDX-License-Identifier = "LGPL-3.0-only"
+SPDX-FileCopyrightText = "Axle Duggan (axlecoffee) <contact@axle.coffee>"
 
 [[annotations]]
 path = [

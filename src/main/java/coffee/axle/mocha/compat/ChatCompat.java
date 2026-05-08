@@ -8,14 +8,12 @@ package coffee.axle.mocha.compat;
 public final class ChatCompat {
 
     private ChatCompat() {}
-
-    //? if >=26.1.2 {
+    //? if <26 {
     public static String platformName() {
-        return "26.x";
+        return "1.21.x";
     }
     //?} else {
     /*public static String platformName() {
-        return "1.21.x";
-    }*/
-    //?}
+        return "26x!!";
+    }*///?}
 }

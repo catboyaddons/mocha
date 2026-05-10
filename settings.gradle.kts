@@ -12,6 +12,20 @@ pluginManagement {
 	}
 }
 
+// force specific versions of kotlinx.serialization to avoid conflicts between loom and stonecutter
+buildscript {
+	configurations.classpath {
+		resolutionStrategy {
+			force(
+				"org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.8.1",
+				"org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.8.1",
+				"org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1",
+				"org.jetbrains.kotlinx:kotlinx-serialization-core:1.8.1"
+			)
+		}
+	}
+}
+
 plugins {
 	id("net.fabricmc.fabric-loom") version "1.16.1" apply false
 	id("net.fabricmc.fabric-loom-remap") version "1.16.1" apply false

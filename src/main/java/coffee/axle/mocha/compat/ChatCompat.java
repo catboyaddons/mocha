@@ -4,16 +4,14 @@
 
 package coffee.axle.mocha.compat;
 
-
 public final class ChatCompat {
-// https://codeberg.org/stonecutter/docs/raw/branch/main/docs/wiki/start/comments.md
     private ChatCompat() {}
-    //? if <26 {
-    public static String platformName() {
-        return "1.21.x";
+
+    public static void addMessage(net.minecraft.client.gui.components.ChatComponent chat, net.minecraft.network.chat.Component message) {
+        //? if <26 {
+        /*chat.addMessage(message);
+        *///?} else {
+        chat.addClientSystemMessage(message);
+        //?}
     }
-    //?} else {
-    /*public static String platformName() {
-        return "26x!!";
-    }*///?}
 }

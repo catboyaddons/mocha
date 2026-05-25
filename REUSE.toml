@@ -30,8 +30,26 @@ path = [
     "gradlew",
     "gradlew.bat",
 ]
+SPDX-License-Identifier = "Apache-2.0"
+SPDX-FileCopyrightText = "Gradle, Inc."
+
+[[annotations]]
+path = "gradle/wrapper/gradle-wrapper.jar"
+SPDX-License-Identifier = "Apache-2.0"
+SPDX-FileCopyrightText = "Gradle, Inc."
+
+[[annotations]]
+path = [
+    ".gitattributes",
+    ".gitignore",
+    ".github/**",
+    "README.md",
+    "src/main/generated/**",
+    "src/main/resources/assets/**",
+    "src/main/resources/pack.mcmeta",
+]
 SPDX-License-Identifier = "CC0-1.0"
-SPDX-FileCopyrightText = "Axle (axle.coffee) <contact@axle.coffee>"
+SPDX-FileCopyrightText = "Axle Duggan (axlecoffee) <contact@axle.coffee>"
 
 [[annotations]]
 path = "LICENSES/**"

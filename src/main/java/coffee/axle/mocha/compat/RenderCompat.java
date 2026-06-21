@@ -6,10 +6,7 @@ package coffee.axle.mocha.compat;
 
 //? if <26 {
 /*import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
-*///?} else {
-import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
-import net.minecraft.resources.Identifier;
-//?}
+*///?}
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
@@ -42,18 +39,23 @@ public final class RenderCompat {
     }
 
 
+    private static Runnable hudRenderCallback = null;
+
     //? if <26 {
     /*public static void registerHudRender(Runnable callback) {
         HudRenderCallback.EVENT.register((ctx, tickCounter) -> callback.run());
     }
     *///?} else {
     public static void registerHudRender(Runnable callback) {
-        HudElementRegistry.addLast(
-            Identifier.parse("mocha:latte-render"),
-            (extractor, deltaTracker) -> callback.run()
-        );
+        hudRenderCallback = callback;
     }
     //?}
+
+    public static void fireHudRender() {
+        if (hudRenderCallback != null) {
+            hudRenderCallback.run();
+        }
+    }
 
 
     private static int blitProgram = 0;

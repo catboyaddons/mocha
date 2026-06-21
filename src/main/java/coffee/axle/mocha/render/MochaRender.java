@@ -30,4 +30,8 @@ public final class MochaRender {
     public static void onHudRender(Runnable callback) {
         RenderCompat.registerHudRender(callback);
     }
+
+    public static void fireHudRender() {
+        RenderCompat.fireHudRender();
+    }
 }

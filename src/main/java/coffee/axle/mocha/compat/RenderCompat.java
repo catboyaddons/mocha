@@ -7,7 +7,7 @@ package coffee.axle.mocha.compat;
 //? if <26 {
 /*import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 *///?}
-import org.lwjgl.glfw.GLFW;
+import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
@@ -19,23 +19,18 @@ public final class RenderCompat {
     private RenderCompat() {}
 
     public static int getFramebufferWidth() {
-        int[] w = new int[1], h = new int[1];
-        GLFW.glfwGetFramebufferSize(GLFW.glfwGetCurrentContext(), w, h);
-        return w[0];
+        return Minecraft.getInstance().getWindow().getScreenWidth();
     }
 
     public static int getFramebufferHeight() {
-        int[] w = new int[1], h = new int[1];
-        GLFW.glfwGetFramebufferSize(GLFW.glfwGetCurrentContext(), w, h);
-        return h[0];
+        return Minecraft.getInstance().getWindow().getScreenHeight();
     }
 
     public static float getContentScale() {
-        long win = GLFW.glfwGetCurrentContext();
-        int[] fbW = new int[1], winW = new int[1];
-        GLFW.glfwGetFramebufferSize(win, fbW, null);
-        GLFW.glfwGetWindowSize(win, winW, null);
-        return winW[0] > 0 ? (float) fbW[0] / winW[0] : 1f;
+        var window = Minecraft.getInstance().getWindow();
+        int fbW = window.getScreenWidth();
+        int winW = window.getWidth();
+        return winW > 0 ? (float) fbW / winW : 1f;
     }
 
 

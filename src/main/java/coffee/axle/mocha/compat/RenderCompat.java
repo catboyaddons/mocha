@@ -52,6 +52,18 @@ public final class RenderCompat {
         }
     }
 
+    public static boolean isGlBackend() {
+        try {
+            var device = com.mojang.blaze3d.systems.RenderSystem.getDevice();
+            if (device == null) return true;
+            var backendField = device.getClass().getDeclaredField("backend");
+            backendField.setAccessible(true);
+            var backend = backendField.get(device);
+            return backend != null && backend.getClass().getName().contains("GlDevice");
+        } catch (Exception e) {
+            return true;
+        }
+    }
 
     private static int blitProgram = 0;
     private static int blitVao    = 0;

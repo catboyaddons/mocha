@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Axle Duggan (axlecoffee) <contact@axle.coffee>
+//
+// SPDX-License-Identifier: LGPL-3.0-only
+
 package coffee.axle.mocha.compat;
 
 import net.minecraft.network.protocol.game.ServerboundInteractPacket;

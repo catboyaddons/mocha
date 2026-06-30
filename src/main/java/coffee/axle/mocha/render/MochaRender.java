@@ -40,7 +40,7 @@ public final class MochaRender {
 
     @FunctionalInterface
     public interface CanvasRenderer {
-        void render(float windowW, float windowH);
+        void render(float windowW, float windowH, Object ctx);
     }
 
     private static final Map<String, CanvasRenderer> canvases = new HashMap<>();
@@ -91,13 +91,14 @@ public final class MochaRender {
 
     /**
      * Fire the active canvas render. Called by LatteMcRenderer.
+     * @param ctx the LatteContext, passed through to the renderer as an Object
      * @return true if a canvas was rendered, false if no active canvas.
      */
-    public static boolean fireActiveCanvas(float windowW, float windowH) {
+    public static boolean fireActiveCanvas(float windowW, float windowH, Object ctx) {
         if (activeCanvasId == null) return false;
         CanvasRenderer renderer = canvases.get(activeCanvasId);
         if (renderer != null) {
-            renderer.render(windowW, windowH);
+            renderer.render(windowW, windowH, ctx);
             return true;
         }
         return false;

@@ -36,18 +36,16 @@ public final class MochaRender {
         RenderCompat.fireHudRender();
     }
 
-    // --- Canvas system for non-HUD overlays (ClickGUI, selectors, etc.) ---
-
     @FunctionalInterface
     public interface CanvasRenderer {
-        void render(float windowW, float windowH);
+        void render(Object context, float windowW, float windowH);
     }
 
     private static final Map<String, CanvasRenderer> canvases = new HashMap<>();
     private static String activeCanvasId = null;
 
     /**
-     * Register a custom canvas renderer.
+     * Register a custom canvas renderer to the meow
      * @param id unique canvas identifier
      * @param renderer called every frame when this canvas is active
      */
@@ -56,7 +54,7 @@ public final class MochaRender {
     }
 
     /**
-     * Unregister a canvas.
+     * Unregister a canvas from the meow.
      */
     public static void unregisterCanvas(String id) {
         canvases.remove(id);
@@ -91,13 +89,14 @@ public final class MochaRender {
 
     /**
      * Fire the active canvas render. Called by LatteMcRenderer.
+     * @param context opaque render context (e.g. LatteContext)
      * @return true if a canvas was rendered, false if no active canvas.
      */
-    public static boolean fireActiveCanvas(float windowW, float windowH) {
+    public static boolean fireActiveCanvas(Object context, float windowW, float windowH) {
         if (activeCanvasId == null) return false;
         CanvasRenderer renderer = canvases.get(activeCanvasId);
         if (renderer != null) {
-            renderer.render(windowW, windowH);
+            renderer.render(context, windowW, windowH);
             return true;
         }
         return false;
